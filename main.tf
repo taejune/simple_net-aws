@@ -12,10 +12,12 @@ terraform {
 }
 
 provider "aws" {
-#  shared_config_files      = [".aws/conf"]
-#  shared_credentials_files = [".aws/creds"]
-  profile                  = "dev"
-  region                   = var.aws_region
+  region     = var.aws_region
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
+  assume_role {
+    role_arn = var.aws_role_arn
+  }
 }
 
 data "aws_availability_zones" "available" {}
