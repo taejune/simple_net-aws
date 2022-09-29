@@ -13,9 +13,16 @@ variable "aws_secret_key" {
   type        = string
 }
 
+variable "aws_session_token" {
+  description = "AWS Session Token"
+  type        = string
+  default     = null
+}
+
 variable "aws_role_arn" {
   description = "AWS Assume Role ARN"
   type        = string
+  default     = null
 }
 
 variable "vpc_cidr_block" {
